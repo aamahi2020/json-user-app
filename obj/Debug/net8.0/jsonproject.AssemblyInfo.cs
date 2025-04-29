@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("jsonproject")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4ba85d8432170017e2e55d3f2ab9c03bbf26a3a1")]
 [assembly: System.Reflection.AssemblyProductAttribute("jsonproject")]
 [assembly: System.Reflection.AssemblyTitleAttribute("jsonproject")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -1,0 +1,16 @@
+﻿[
+    {
+        "UserType": "Admin",
+        "Name": "Alice",
+        "Age": 40,
+        "City": "London",
+        "AdminLevel": "Super"
+    },
+    {
+        "UserType": "Member",
+        "Name": "Bob",
+        "Age": 28,
+        "City": "Berlin",
+        "MembershipDate": "2022-05-12"
+    }
+]

@@ -16,3 +16,5 @@ C:\Users\Asus\source\repos\jsonproject\jsonproject\bin\Debug\net8.0\Newtonsoft.J
 C:\Users\Asus\source\repos\jsonproject\jsonproject\obj\Debug\net8.0\jsonproject.csproj.AssemblyReference.cache
 C:\Users\Asus\source\repos\jsonproject\jsonproject\obj\Debug\net8.0\jsonproj.922E455D.Up2Date
 C:\Users\Asus\source\repos\jsonproject\jsonproject\bin\Debug\net8.0\user.json
+C:\Users\Asus\source\repos\jsonproject\jsonproject\obj\Debug\net8.0\jsonproject.sourcelink.json
+C:\Users\Asus\source\repos\jsonproject\jsonproject\bin\Debug\net8.0\usertypes.json
