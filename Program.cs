@@ -12,68 +12,87 @@ namespace JsonExample
         public string Name { get; set; }
         public int Age { get; set; }
         public string City { get; set; }
-        public string UserType { get; set; }
+        public string Role { get; set; }
     }
 
-    // Admin class
+    // Derived Admin class
     public class Admin : User
     {
-        public string AdminLevel { get; set; }
+        public List<string> Permissions { get; set; }
     }
 
-    // Member class
-    public class Member : User
+    // Derived RegularUser class
+    public class RegularUser : User
     {
-        public string MembershipDate { get; set; }
+        public string MembershipLevel { get; set; }
     }
 
     class Program
     {
         static void Main(string[] args)
         {
-            // Read new JSON file
-            string json = File.ReadAllText("usertypes.json");
-            var jArray = JArray.Parse(json);
+            string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "user_types.json");
+
+            if (!File.Exists(filePath))
+            {
+                Console.WriteLine("JSON file not found: " + filePath);
+                return;
+            }
+
+            string jsonContent = File.ReadAllText(filePath);
 
             List<User> users = new List<User>();
 
-            foreach (var item in jArray)
+            try
             {
-                string userType = item["UserType"]?.ToString();
+                JArray dataArray = JArray.Parse(jsonContent);
 
-                if (userType == "Admin")
+                foreach (var item in dataArray)
                 {
-                    Admin admin = item.ToObject<Admin>();
-                    users.Add(admin);
+                    string role = item["Role"]?.ToString();
+
+                    if (role == "Admin")
+                    {
+                        Admin admin = item.ToObject<Admin>();
+                        users.Add(admin);
+                    }
+                    else if (role == "User")
+                    {
+                        RegularUser user = item.ToObject<RegularUser>();
+                        users.Add(user);
+                    }
+                    else
+                    {
+                        User baseUser = item.ToObject<User>();
+                        users.Add(baseUser);
+                    }
                 }
-                else if (userType == "Member")
+
+                // Print all users
+                foreach (var user in users)
                 {
-                    Member member = item.ToObject<Member>();
-                    users.Add(member);
+                    Console.WriteLine($"Role: {user.Role}");
+                    Console.WriteLine($"Name: {user.Name}");
+                    Console.WriteLine($"Age: {user.Age}");
+                    Console.WriteLine($"City: {user.City}");
+
+                    if (user is Admin admin)
+                    {
+                        Console.WriteLine("Permissions: " + string.Join(", ", admin.Permissions));
+                    }
+                    else if (user is RegularUser regUser)
+                    {
+                        Console.WriteLine("Membership Level: " + regUser.MembershipLevel);
+                    }
+
+                    Console.WriteLine(new string('-', 40));
                 }
             }
-
-            // Print user data
-            foreach (var user in users)
+            catch (Exception ex)
             {
-                Console.WriteLine($"Type: {user.UserType}");
-                Console.WriteLine($"Name: {user.Name}");
-                Console.WriteLine($"Age: {user.Age}");
-                Console.WriteLine($"City: {user.City}");
-
-                if (user is Admin admin)
-                {
-                    Console.WriteLine($"Admin Level: {admin.AdminLevel}");
-                }
-                else if (user is Member member)
-                {
-                    Console.WriteLine($"Membership Date: {member.MembershipDate}");
-                }
-
-                Console.WriteLine("--------------------------");
+                Console.WriteLine("Error deserializing JSON: " + ex.Message);
             }
         }
     }
 }
-
 

@@ -18,3 +18,4 @@ C:\Users\Asus\source\repos\jsonproject\jsonproject\obj\Debug\net8.0\jsonproj.922
 C:\Users\Asus\source\repos\jsonproject\jsonproject\bin\Debug\net8.0\user.json
 C:\Users\Asus\source\repos\jsonproject\jsonproject\obj\Debug\net8.0\jsonproject.sourcelink.json
 C:\Users\Asus\source\repos\jsonproject\jsonproject\bin\Debug\net8.0\usertypes.json
+C:\Users\Asus\source\repos\jsonproject\jsonproject\bin\Debug\net8.0\user_types.json

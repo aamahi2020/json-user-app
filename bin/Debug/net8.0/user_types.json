@@ -1,0 +1,16 @@
+﻿[
+    {
+        "Name": "Alice",
+        "Age": 28,
+        "City": "Berlin",
+        "Role": "Admin",
+        "Permissions": [ "read", "write", "delete" ]
+    },
+    {
+        "Name": "Bob",
+        "Age": 34,
+        "City": "Paris",
+        "Role": "User",
+        "MembershipLevel": "Gold"
+    }
+]
